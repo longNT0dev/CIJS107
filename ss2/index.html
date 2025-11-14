@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Các kiểu dữ liệu nguyên thủy (Primitive Values): string, number, boolean, null, undefined => Truyền tham trị
+      // Các kiểu dữ liệu phức: Array, Object => Truyền tham chiếu
+
+      // Array: Danh sách có thể chứa các kiểu dữ liệu khác
+      // C - Create
+      //   let numbers = [12, 20, 53, 44, 51];
+
+      // R - Read: Truy cập thông qua chỉ số (index) => index bắt đầu từ 0
+      // console.log(numbers[2])
+      // Đọc toàn bộ mảng thông qua vòng lặp
+      // for(let i = 0; i < numbers.length; i++) { // numbers.length: Độ dài của mảng = 5
+      //     console.log(numbers[i])
+      // }
+
+      // U - Update: Cập nhật giá trị thông qua chỉ số (index)
+      // numbers[2] = 99
+
+      // console.log(numbers)
+
+      // Delete: Xóa phần tử trong mảng => Phải tự cài đặt, dịch chuyển giá trị, xóa phần tử dư thừa đi
+      // Cung cấp các phương thức để có xóa phần tử trong mảng dễ dàng
+
+      // numbers.splice(1, 2) // [12, 44, 51]
+
+      // console.log(numbers)
+
+      // numbers.splice(1, 2, 100, 200, 300) // splice thay đổi mảng gốc => Tránh việc thao tác trực tiếp vào mảng gốc
+      // console.log(numbers)
+
+      // ... (Rest Operator)
+      // ... (Spread Operator)
+      // Tham chiếu và tham trị
+
+      //   let a = [1, 2, 3];
+      //   let b = [...a]; // 1,2,3 // Copy tất cả giá trị từ mảng a sang mảng b
+
+      //   a.push(4);
+
+      //   console.log(a);
+
+      //   console.log(b);
+
+      // map: Tạo ra một mảng mới thông qua việc thao tác (ánh xạ) trên từng phần tử của mảng ban đầu
+      //   let numbers = [1, 2, 3, 4, 5];
+
+      //   // Tạo ra 1 mảng mới với các giá trị gấp đôi mảng ban đầu
+      //   let doubleNumbers = numbers.map((v, i) => {
+      //     console.log("Giá trị " + v)
+      //     console.log("Chỉ số " + i)
+
+      //     // Mỗi khi đến phần tử nào, ta sẽ nhân 2 giá trị đó lên và trả về cho mảng mới
+      //     return v * 3
+      //   })
+
+      //   console.log(doubleNumbers)
+
+      // Object: Đối tượng, thực thể có thực trong đời sống (Đặc điểm, Hành vi => Phương thức (Method))
+
+      // C - Create
+      let person = {
+        name: "Nguyen Van A",
+        age: 18,
+        address: "Hanoi",
+        say: function () {
+          console.log("Hello everyone!");
+        },
+      };
+
+      // R - Read
+      // let key = "age"
+      // console.log(person.name)
+      // console.log(person[key])
+
+      // Đọc tất cả key trong object thông qua vòng lặp for
+      // for(let k in person) {
+      //     console.log("Key :" + k)
+      //     console.log("Value :" + person[k])
+      // }
+
+      // // U - Update
+      // person.age = 20
+
+      // console.log(person)
+
+      // // D - delete
+      // delete person.name
+
+      // console.log(person)
+
+      // Phương thức của object
+      // console.log(Object.keys(person)) // Lấy tất cả các key trong object dưới dạng mảng
+
+      // console.log(Object.values(person)) // Lấy tất cả các value trong object dưới dạng mảng
+
+      const obj1 = { a: 1, b: 10 };
+      const obj2 = { b: 2 };
+      //   const mergedObj = Object.assign({}, obj1, obj2); // => Là 1 cách để có sao chép, tạo ra 1 object mới để tránh vấn đề tham chiếu
+
+      //   console.log(mergedObj)
+
+      const mergedObj2 = { ...obj1, ...obj2 }; // Cách sử dụng Spread Operator để gộp 2 object
+
+      console.log(mergedObj2);
+    </script>
+  </body>
+</html>
