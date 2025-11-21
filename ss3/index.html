@@ -38,5 +38,80 @@
 
     Một trang Home => Tập hợp 1 hoặc nhiều component Login => Tập hợp 1 hoặc
     nhiều component Signup => Tập hợp 1 hoặc nhiều component
+
+    <script>
+      // Một trong những hàm bất đồng bộ setTimeout => Câu lệnh viết trước nhưng lại chạy sau
+      // setTimeout(() => {
+      //   console.log("Đây là dòng viết trước");
+      // }, 2000);
+
+      // console.log("Đây là dòng viết sau");
+
+      // Tất cả các công việc bất đồng bộ trong JS đều sẽ là Promise
+      new Promise((resolve, reject) => {
+        // resolve: Hàm dùng để trả về kết quả trong trường hợp thành công
+        // reject: Hàm dùng để trả về kết quả trong trường hợp thất bại
+      });
+
+      // Khởi tạo Promise bất đồng bộ
+      // const setPromise = new Promise((resolve, reject) => {
+      //   // Logic xử lý bất đồng bộ ở đây
+      //   const check = false;
+      //   if (check) {
+      //     // Chuỗi Kết quả thành công sẽ được đưa vào giá trị tham số của callback trong .then
+      //     resolve("Kết quả thành công");
+      //   } else {
+      //     // Chuỗi Có lỗi xảy ra sẽ được đưa vào giá trị tham số của callback trong .catch
+      //     reject("Có lỗi xảy ra");
+      //   }
+      // });
+
+      // // Xử lý Promise bất đồng bộ
+      // setPromise
+      //   .then((value) => { // Chạy vào .then trong trường hợp Promise thành công
+      //     console.log(value);
+      //   })
+      //   // .then()
+      //   // .then()
+      //   .catch((error) => { // Chạy vào .catch trong trường hợp Promise thất bại
+      //     console.log(error);
+      //   });
+      // console.log("Sau promise");
+
+      // fetch sẽ nhận vào tối đa 2 tham số và tối thiểu 1 
+      // Tham số đầu tiên: Địa chỉ gọi tới để lấy dữ liệu về
+      // Tham số thứ hai: Cấu hình gọi API (Phương thức gọi - method, Dữ liệu gửi đi - body, Kiểu dữ liệu - Content-Type)
+
+      // const api = "https://jsonplaceholder.typicode.com/todos";
+      // fetch(api)
+      //   .then((res) => {
+      //     console.log(res);
+      //     return res.json();
+      //   })
+      //   .then((data) => {
+      //     console.log(data);
+      //   });
+
+      // Async/Await
+      const fetchData = async () => {
+        const api = "https://jsonplaceholder.typicode.com/todos";
+
+        let response = await fetch(api)
+
+        console.log(response)
+
+        // await đảm bảo việc công việc fetch được kết thúc rồi mới chạy tiếp
+        let data = response.json()
+
+        console.log(data)
+
+        console.log("Hoàn thành công việc")
+      }
+
+      fetchData()
+
+
+      
+    </script>
   </body>
 </html>

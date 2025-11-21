@@ -5,6 +5,8 @@ import './App.css'
 import IconInput from './components/IconInput/IconInput.jsx'
 import Card from './components/Card/Card.jsx'
 import SS4 from './SS4/SS4.jsx'
+import SS5 from './SS5/SS5.jsx'
+import AuthForm from './components/AuthForm/AuthForm.jsx'
 function App() {
   // Đây là 1 cách khai báo biến trong component (Biến >< State)
   const [count, setCount] = useState(0)
@@ -39,7 +41,9 @@ function App() {
       <Card name="ĐHBKHN" age="18" demo={example} />
       <Card name="MindX" age="10" /> */}
 
-      <SS4></SS4>
+      {/* <SS5></SS5> */}
+
+      <AuthForm></AuthForm>
     </>
   )
 }
