@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Địa chỉ chúng ta gọi tới để lấy dữ liệu
+        const BASE_URL = "https://69207ad031e684d7bfcd33b4.mockapi.io" 
+        
+        const fetchData = async () => {
+            const res = await fetch(`${BASE_URL}/users/1`) // Phương thức GET
+
+            // Sau khi gọi tới đường dẫn API trên => Respose => .json
+
+            const data = await res.json()
+
+
+            console.log("Dữ liệu sau khi kết thúc quá trình gọi API", data)
+        }
+
+        fetchData()
+      
+
+    </script>
+</body>
+</html>
