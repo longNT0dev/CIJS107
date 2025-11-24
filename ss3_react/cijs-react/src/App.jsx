@@ -6,6 +6,7 @@ import IconInput from './components/IconInput/IconInput.jsx'
 import Card from './components/Card/Card.jsx'
 import SS4 from './SS4/SS4.jsx'
 import SS5 from './SS5/SS5.jsx'
+import SS6 from './SS6/SS6.jsx'
 import AuthForm from './components/AuthForm/AuthForm.jsx'
 function App() {
   // Đây là 1 cách khai báo biến trong component (Biến >< State)
@@ -43,7 +44,7 @@ function App() {
 
       {/* <SS5></SS5> */}
 
-      <AuthForm></AuthForm>
+      <SS6></SS6>
     </>
   )
 }
