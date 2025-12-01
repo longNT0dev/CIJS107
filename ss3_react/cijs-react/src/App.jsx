@@ -81,12 +81,20 @@ function App() {
       <div className='app w-screen min-h-screen bg-[#F0F4F5]'>
         <Routes>
           <Route path='' element={<h1>Hello MindX</h1>} />
-          <Route path='/my-profile' element={<MyProfile />}>
-            {/* <Route path=':userId' element={<h1>Chi tiết user có id là userId</h1>} /> */}
+          {/* <Route path='/my-profile' element={<MyProfile />}>
+            <Route path=':userId' element={<h1>Chi tiết user có id là userId</h1>} />
             <Route index element={<h2>Profile</h2>}></Route>
             <Route path="friends" element={<h3>Danh sách bạn bè 1</h3>}></Route>
             <Route path=":profileId" element={<h3>Danh sách bạn bè</h3>}></Route>
-          </Route>
+          </Route> */}
+
+          <ProtectedRoute>
+            <Route path='/my-profile/*' element={<MyProfile />}></Route>
+            {/* // Kiểm tra người dùng có đang đăng nhập hay không
+            // Nếu đang đăng nhập => Render Outlet (Route người dùng đang muốn truy cập)
+            // Nếu chưa đăng nhập => Chuyển hướng (redirect) về trang /login => useNavigate */}
+          </ProtectedRoute>
+
           <Route path='/login' element={<h1>Login Page</h1>} />
         </Routes>
       </div>

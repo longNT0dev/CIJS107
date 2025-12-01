@@ -9,6 +9,7 @@ function MyProfile() {
 
     useEffect(() => {
         console.log(searchParams.get("c"))
+        // Kiểm tra trạng thái đăng nhập
     }, [])
 
     return (
