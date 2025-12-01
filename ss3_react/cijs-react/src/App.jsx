@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -8,6 +8,11 @@ import SS4 from './SS4/SS4.jsx'
 import SS5 from './SS5/SS5.jsx'
 import SS6 from './SS6/SS6.jsx'
 import AuthForm from './components/AuthForm/AuthForm.jsx'
+import SS7 from './SS7/SS7.jsx'
+import UserContext from "./SS7/contexts/UserContext.js"
+import { Link, Outlet, Route, Routes } from 'react-router';
+import MyProfile from './components/MyProfile/MyProfile.jsx'
+
 function App() {
   // Đây là 1 cách khai báo biến trong component (Biến >< State)
   const [count, setCount] = useState(0)
@@ -15,6 +20,21 @@ function App() {
     name: "DHBKHN",
     age: 18
   }
+
+  const [user, setUser] = useState({
+    isLogin: false,
+    name: '',
+    email: "",
+  })
+
+  useEffect(() => {
+    // Gọi API => Lấy dữ liệu user sau khi đăng nhập thành công
+    setUser({
+      isLogin: true,
+      name: 'Mindx',
+      email: 'mind@edu.vn'
+    })
+  }, [])
 
   return (
     <>
@@ -38,13 +58,40 @@ function App() {
       <p className="read-the-docs">
         {example}
       </p> */}
-{/* 
+      {/* 
       <Card name="ĐHBKHN" age="18" demo={example} />
       <Card name="MindX" age="10" /> */}
 
       {/* <SS5></SS5> */}
+      {/* 
+      <SS6></SS6> */}
 
-      <SS6></SS6>
+      {/* <UserContext.Provider value={{ user, setUser }}>
+        Những component có thể sử dụng dữ liệu từ UserContext
+        <SS7></SS7>
+      </UserContext.Provider>
+
+      <SS6></SS6> */}
+      <div style={{ display: "flex", columnGap: "20px" }}>
+        <Link to="/">Trang chủ</Link>
+        <Link to="/my-profile">Profile</Link>
+        <Link to="/login">Login</Link>
+      </div>
+
+      <div className='app w-screen min-h-screen bg-[#F0F4F5]'>
+        <Routes>
+          <Route path='' element={<h1>Hello MindX</h1>} />
+          <Route path='/my-profile' element={<MyProfile />}>
+            {/* <Route path=':userId' element={<h1>Chi tiết user có id là userId</h1>} /> */}
+            <Route index element={<h2>Profile</h2>}></Route>
+            <Route path="friends" element={<h3>Danh sách bạn bè 1</h3>}></Route>
+            <Route path=":profileId" element={<h3>Danh sách bạn bè</h3>}></Route>
+          </Route>
+          <Route path='/login' element={<h1>Login Page</h1>} />
+        </Routes>
+      </div>
+
+      <div>Đây là footer</div>
     </>
   )
 }
